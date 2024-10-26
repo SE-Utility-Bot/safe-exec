@@ -6,7 +6,7 @@ app = Flask(__name__)
 def execute(code):
   try:
     f = open("code.py", "w")
-    f.write(f"try:\n\tprint({unquote(code)})\nexcept BaseException as e:\n\tprint(repr(e))")
+    f.write(f"from math import*\nimport sympy\ntry:\n\tprint({unquote(code)})\nexcept BaseException as e:\n\tprint(repr(e))")
     f.close()
     carr = ["timeout", "-s", "SIGKILL", "10s", "python3", "code.py"]
     return subprocess.check_output(carr).decode("utf-8").replace("\n", "")
