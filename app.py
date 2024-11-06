@@ -1,6 +1,6 @@
 from flask import Flask
 from urllib.parse import unquote
-from urllib.requests import urlopen
+from urllib.request import urlopen
 from urllib.error import URLError
 import subprocess
 app = Flask(__name__)
