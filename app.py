@@ -22,7 +22,7 @@ def execute(code):
 @app.route("/run/<pastebin_id>")
 def execute_code(pastebin_id):
   try:
-    code = urlopen(f"https://pastebin.com/").read().decode('utf-8')
+    code = urlopen(f"https://pastebin.com/{pastebin_id}/raw").read().decode('utf-8')
     f = open("code.py", "w")
     f.write(code)
     f.close()
